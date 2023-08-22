@@ -1,0 +1,51 @@
+users
+-----
+id int pk
+username str unique
+password str
+active bool
+
+profiles
+-----
+id int pk
+biography str null
+twitter str null
+facebook str null
+instagram str null
+github str null
+users_id int fk - users.id
+
+articles
+-----
+id int pk
+title str
+resume str
+content text
+published date
+is_draft bool
+users_id int fk >- users.id 
+
+article_photos
+-----
+id int pk
+filename str null
+active bool default=true
+articles_id int fk >- articles.id
+
+categories
+-----
+id int pk 
+name str 
+active bool
+
+
+categories_articles
+-----
+articles_id int pk fk >- articles.id
+categories_id int pk fk >- categories.id
+
+
+
+
+
+
